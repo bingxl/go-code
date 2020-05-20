@@ -6,6 +6,9 @@ import (
 	"strconv"
 )
 
+const checkMark = "\u2713" // 对号 %v
+const ballotX = "\u2717"   // 错号
+
 // MinInt32 最小有符号32位
 var MinInt32 = -math.MaxInt32 - 1
 
