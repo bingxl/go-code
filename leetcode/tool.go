@@ -1,5 +1,8 @@
 package leetcode
 
+/**
+leetcode包下共用工具
+*/
 import (
 	"fmt"
 	"math"
