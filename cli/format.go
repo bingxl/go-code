@@ -43,9 +43,6 @@ func ColorStr(format, s string) string {
 			vstr := strconv.Itoa(v)
 			fstring = append(fstring, vstr)
 
-		} else {
-			// 不存在的格式处理
-
 		}
 	}
 	str := fmt.Sprintf("%c[%sm%s%c[0m", 0x1B, strings.Join(fstring, ";"), s, 0x1B)

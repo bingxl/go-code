@@ -40,7 +40,7 @@ func main() {
 
 	if handleType == "edit" {
 		for _, filestr := range matches {
-			if strings.Index(filestr, tmpAfterFix) != -1 {
+			if strings.Contains(filestr, tmpAfterFix) {
 				// 已处理过的文件不再处理
 				continue
 			}
@@ -51,7 +51,7 @@ func main() {
 
 	} else if handleType == "mv" {
 		for _, filestr := range matches {
-			if strings.Index(filestr, tmpAfterFix) == -1 {
+			if !strings.Contains(filestr, tmpAfterFix) {
 				// 不需要处理的文件
 				continue
 			}
