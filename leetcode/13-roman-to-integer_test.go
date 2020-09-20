@@ -12,3 +12,12 @@ func TestP13(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkP13(b *testing.B) {
+	b.ResetTimer()
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		j := i % len(p12Cases)
+		p13V1(p12Cases[j].symbol)
+	}
+}
