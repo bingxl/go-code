@@ -19,9 +19,9 @@ func TestSliceToString(t *testing.T) {
 	for _, v := range cases {
 		re := SliceToString(v.input)
 		if re == v.output {
-			t.Logf(checkMark)
+			t.Logf(rightSymbol)
 		} else {
-			t.Errorf("%s, expect: %s, but get: %s", ballotX, v.output, re)
+			t.Errorf("%s, expect: %s, but get: %s", errorSymbol, v.output, re)
 		}
 	}
 }

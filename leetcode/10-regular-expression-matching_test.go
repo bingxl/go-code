@@ -1,7 +1,9 @@
 package leetcode
 
 import "testing"
-var p10Cases = []struct {
+
+func TestP10IsMatch(t *testing.T) {
+	var p10Cases = []struct {
 		s      string
 		p      string
 		result bool
@@ -16,18 +18,15 @@ var p10Cases = []struct {
 		{"ab", "a*", false},
 		{"aab", "c*a*b", true},
 	}
-func p10Base(t *testing.T, f func(string, string)(bool)) {
-	for _, c := range p10Cases {
-		r := f(c.s, c.p)
-		if r != c.result {
-			t.Errorf("%s, string: %s, except: %v, but got:%v", ballotX, c.s, c.result, r)
-		} else {
-			t.Logf(checkMark)
-		}
-	}
-}
 
-func TestP10(t *testing.T) {
-	// t.Run("p10badResolve", func(t *testing.T) {p10Base(t, p10badResolve)})
-	t.Run("p10v1", func(t *testing.T) {p10Base(t, p10V1)})
+	t.Run("p10IsMatch", func(t *testing.T) {
+		for _, c := range p10Cases {
+			r := p10IsMatch(c.s, c.p)
+			if r != c.result {
+				t.Errorf("%s, string: %s, except: %v, but got:%v", errorSymbol, c.s, c.result, r)
+			} else {
+				t.Logf(rightSymbol)
+			}
+		}
+	})
 }

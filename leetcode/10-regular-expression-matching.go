@@ -1,64 +1,83 @@
+/*
+ * @lc app=leetcode.cn id=10 lang=golang
+ *
+ * [10] 正则表达式匹配
+ *
+ * https://leetcode.cn/problems/regular-expression-matching/description/
+ *
+ * algorithms
+ * Hard (30.79%)
+ * Likes:    3612
+ * Dislikes: 0
+ * Total Accepted:    371.2K
+ * Total Submissions: 1.2M
+ * Testcase Example:  '"aa"\n"a"'
+ *
+ * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+ *
+ *
+ * '.' 匹配任意单个字符
+ * '*' 匹配零个或多个前面的那一个元素
+ *
+ *
+ * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+ *
+ *
+ * 示例 1：
+ *
+ *
+ * 输入：s = "aa", p = "a"
+ * 输出：false
+ * 解释："a" 无法匹配 "aa" 整个字符串。
+ *
+ *
+ * 示例 2:
+ *
+ *
+ * 输入：s = "aa", p = "a*"
+ * 输出：true
+ * 解释：因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a' 重复了一次。
+ *
+ *
+ * 示例 3：
+ *
+ *
+ * 输入：s = "ab", p = ".*"
+ * 输出：true
+ * 解释：".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
+ *
+ *
+ *
+ *
+ * 提示：
+ *
+ *
+ * 1 <= s.length <= 20
+ * 1 <= p.length <= 20
+ * s 只包含从 a-z 的小写字母。
+ * p 只包含从 a-z 的小写字母，以及字符 . 和 *。
+ * 保证每次出现字符 * 时，前面都匹配到有效的字符
+ *
+ *
+ */
+
+// @lc code=start
+
 package leetcode
 
-// isMatch 判断给定得字符串是否匹配给定得正则表达式(正则表达式中仅有.*)
-
-// 此方法是没看leetcode解法时思索的,未能正确匹配, 关键在于没善用递归
-func p10badResolve(s string, p string) bool {
-	sRu := []rune(s)
-	pRu := []rune(p)
-
-	i, j := 0, 0
-	for j < len(pRu) {
-		switch pRu[j] {
-		case '.':
-			{
-				// s中已没有字符,则匹配失败
-				if i >= len(sRu) {
-					return false
-				}
-				i++
-				j++
-			}
-		case '*':
-			{
-				if j == len(pRu)-1 {
-					return true
-				}
-				if i >= len(sRu) {
-					return false
-				}
-				if p10badResolve(string(sRu[i:]), string(pRu[j+1:])) {
-					return true
-				}
-				i++
-			}
-		default:
-			{
-				if i >= len(sRu) {
-					return false
-				}
-				if sRu[i] != pRu[j] {
-					return false
-				}
-				i++
-				j++
-
-			}
-		}
-	}
-
-	return i == len(sRu) && j == len(pRu)
-}
-
-func p10V1(s, p string) bool {
+func p10IsMatch(s string, p string) bool {
 	// 正则已空时看字符串是否为空
-	if len(p) == 0 {return len(s) == 0}
+	if len(p) == 0 {
+		return len(s) == 0
+	}
 
 	// 字符串第一个和正则第一个是否匹配
-	firstMatch := (len(s) != 0 && ((s[0] == p[0]) || (p[0] == '.') ))
+	firstMatch := (len(s) != 0 && ((s[0] == p[0]) || (p[0] == '.')))
 
 	if len(p) >= 2 && p[1] == '*' {
-		return p10V1(s, p[2:]) ||(firstMatch && p10V1(s[1:], p))
+		return p10IsMatch(s, p[2:]) || (firstMatch && p10IsMatch(s[1:], p))
 	}
-	return firstMatch && p10V1(s[1:], p[1:])
+	return firstMatch && p10IsMatch(s[1:], p[1:])
 }
+
+// @lc code=end

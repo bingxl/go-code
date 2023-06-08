@@ -1,10 +1,58 @@
+/*
+ * @lc app=leetcode.cn id=14 lang=golang
+ *
+ * [14] 最长公共前缀
+ *
+ * https://leetcode.cn/problems/longest-common-prefix/description/
+ *
+ * algorithms
+ * Easy (43.34%)
+ * Likes:    2804
+ * Dislikes: 0
+ * Total Accepted:    1.1M
+ * Total Submissions: 2.5M
+ * Testcase Example:  '["flower","flow","flight"]'
+ *
+ * 编写一个函数来查找字符串数组中的最长公共前缀。
+ *
+ * 如果不存在公共前缀，返回空字符串 ""。
+ *
+ *
+ *
+ * 示例 1：
+ *
+ *
+ * 输入：strs = ["flower","flow","flight"]
+ * 输出："fl"
+ *
+ *
+ * 示例 2：
+ *
+ *
+ * 输入：strs = ["dog","racecar","car"]
+ * 输出：""
+ * 解释：输入不存在公共前缀。
+ *
+ *
+ *
+ * 提示：
+ *
+ *
+ * 1 <= strs.length <= 200
+ * 0 <= strs[i].length <= 200
+ * strs[i] 仅由小写英文字母组成
+ *
+ *
+ */
+
+// @lc code=start
 package leetcode
 
 import (
 	"strings"
 )
 
-func p14V1(strs []string) string {
+func longestCommonPrefixV1(strs []string) string {
 	if (len(strs)) == 0 {
 		return ""
 	}
@@ -34,7 +82,7 @@ func p14V1(strs []string) string {
 	return commonPrefix.String()
 }
 
-func p14V2(strs []string) string {
+func longestCommonPrefixV2(strs []string) string {
 	// 如果为空,返回"", 如果只有一个字符串则返回这个字符串, 因为后面遍历比较时可以不用和strs[0]比较
 	switch len(strs) {
 	case 0:
@@ -57,3 +105,5 @@ func p14V2(strs []string) string {
 	}
 	return baseStr
 }
+
+// @lc code=end

@@ -2,34 +2,32 @@ package leetcode
 
 import "testing"
 
-var p14Cases = []struct {
-	strs   []string
-	common string
-}{
-	{[]string{"flower", "flow", "flight"}, "fl"},
-	{[]string{"dog", "racecar", "car"}, ""},
-	{[]string{"", "123", "1"}, ""},
-	{[]string{}, ""},
-}
-
-func TestP14V1(t *testing.T) {
-	for _, c := range p14Cases {
-		result := p14V1(c.strs)
-		if result != c.common {
-			t.Errorf("%v, except: %s, but got: %s", ballotX, c.common, result)
-		} else {
-			t.Logf(checkMark)
-		}
+func TestLongestCommonPrefix(t *testing.T) {
+	var p14Cases = []struct {
+		strs   []string
+		common string
+	}{
+		{[]string{"flower", "flow", "flight"}, "fl"},
+		{[]string{"dog", "racecar", "car"}, ""},
+		{[]string{"", "123", "1"}, ""},
+		{[]string{}, ""},
 	}
-}
 
-func TestP14V2(t *testing.T) {
-	for _, c := range p14Cases {
-		result := p14V2(c.strs)
-		if result != c.common {
-			t.Errorf("%v, expect: %s, but got: %s", ballotX, c.common, result)
-		} else {
-			t.Logf(checkMark)
-		}
+	methods := map[string]func([]string) string{
+		"longestCommonPrefixV1": longestCommonPrefixV1,
+		"longestCommonPrefixV2": longestCommonPrefixV2,
+	}
+
+	for name, method := range methods {
+		t.Run(name, func(t *testing.T) {
+			for _, c := range p14Cases {
+				result := method(c.strs)
+				if result != c.common {
+					t.Errorf("%v, except: %s, but got: %s", errorSymbol, c.common, result)
+				} else {
+					t.Logf(rightSymbol)
+				}
+			}
+		})
 	}
 }
