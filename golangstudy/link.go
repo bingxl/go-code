@@ -37,22 +37,22 @@ func linktest() {
 	// 获取列表节点数
 	l.Len()
 	l.MoveBefore(e, e2) // 将e移动到e2之前
-	printlink(l)
+	printLink(l)
 	l.MoveAfter(e, e3)
 	l.MoveToFront(e)
 	l.MoveToBack(e)
 
-	printlink(l)
+	printLink(l)
 
 	l.Remove(e)
-	printlink(l)
+	printLink(l)
 
 	// 清空或初始化列表
 	l.Init()
-	printlink(l)
+	printLink(l)
 }
 
-func printlink(l list.List) {
+func printLink(l list.List) {
 
 	if l.Len() == 0 {
 		fmt.Println("列表暂无节点")

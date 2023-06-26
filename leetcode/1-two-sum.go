@@ -62,7 +62,7 @@
 
 // @lc code=start
 
-package leetcode
+package main
 
 // TwoSum get the two index which sum in target
 //	暴力破解法

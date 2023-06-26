@@ -1,3 +1,4 @@
+// cSpell: disable
 /*
  * @lc app=leetcode.cn id=5 lang=golang
  *
@@ -46,7 +47,8 @@
  */
 
 // @lc code=start
-package leetcode
+// cSpell: enbale
+package main
 
 import (
 	"math"
@@ -59,7 +61,7 @@ func longestPalindrome(s string) string {
 	}
 	ru := []rune(s)
 	n := len(ru)
-	imax, imin := 0, 0
+	iMax, iMin := 0, 0
 	for i := 1; i < n; i++ {
 		curMax, curMin := i, i
 
@@ -91,12 +93,12 @@ func longestPalindrome(s string) string {
 				break
 			}
 		}
-		if curMax-curMin > imax-imin {
-			imax, imin = curMax, curMin
+		if curMax-curMin > iMax-iMin {
+			iMax, iMin = curMax, curMin
 		}
 	}
 
-	return s[imin : imax+1]
+	return s[iMin : iMax+1]
 }
 
 // @lc code=end

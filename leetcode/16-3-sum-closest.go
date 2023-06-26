@@ -50,7 +50,7 @@
 
 // @lc code=start
 
-package leetcode
+package main
 
 func threeSumClosest(nums []int, target int) int {
 	if len(nums) < 3 {

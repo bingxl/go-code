@@ -1,3 +1,4 @@
+// cSpell: disable
 /*
  * @lc app=leetcode.cn id=3 lang=golang
  *
@@ -54,7 +55,8 @@
  */
 
 // @lc code=start
-package leetcode
+// cSpell: enable
+package main
 
 import (
 	"math"

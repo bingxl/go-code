@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 /**
 leetcode包下共用工具

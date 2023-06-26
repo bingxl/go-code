@@ -63,7 +63,7 @@
 
 // @lc code=start
 
-package leetcode
+package main
 
 func p10IsMatch(s string, p string) bool {
 	// 正则已空时看字符串是否为空

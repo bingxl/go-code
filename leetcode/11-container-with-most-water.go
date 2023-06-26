@@ -53,7 +53,7 @@
 
 // @lc code=start
 
-package leetcode
+package main
 
 import (
 	"fmt"

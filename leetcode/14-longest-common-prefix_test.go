@@ -1,11 +1,11 @@
-package leetcode
+package main
 
 import "testing"
 
 func TestLongestCommonPrefix(t *testing.T) {
 	var p14Cases = []struct {
-		strs   []string
-		common string
+		strings []string
+		common  string
 	}{
 		{[]string{"flower", "flow", "flight"}, "fl"},
 		{[]string{"dog", "racecar", "car"}, ""},
@@ -21,7 +21,7 @@ func TestLongestCommonPrefix(t *testing.T) {
 	for name, method := range methods {
 		t.Run(name, func(t *testing.T) {
 			for _, c := range p14Cases {
-				result := method(c.strs)
+				result := method(c.strings)
 				if result != c.common {
 					t.Errorf("%v, except: %s, but got: %s", errorSymbol, c.common, result)
 				} else {

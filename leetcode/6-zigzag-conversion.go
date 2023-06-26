@@ -69,7 +69,7 @@
  */
 
 // @lc code=start
-package leetcode
+package main
 
 // 思路：使用numRows个切片来存储字符，注意正向或反向存储的问题
 

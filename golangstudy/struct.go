@@ -8,7 +8,7 @@ type Addr struct {
 	ZipCode  int
 }
 
-func Structtest() {
+func structTest() {
 	addr := Addr{
 		Province: "四川",
 		City:     "成都",
