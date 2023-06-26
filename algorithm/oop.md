@@ -51,13 +51,13 @@ type Chinese struct {
     Language string
 }
 
-func (c *Chinese) Speack() {
-    fmt.Println("chinese " + c.name + " speack " + c.Language)
+func (c *Chinese) Speak() {
+    fmt.Println("chinese " + c.name + " speak " + c.Language)
 }
 
 // 使用接口类型
 var h Human = new(Chinese)
-h.Speack()
+h.Speak()
 
 ```
 
