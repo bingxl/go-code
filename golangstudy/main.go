@@ -4,11 +4,11 @@ import "fmt"
 
 func main() {
 	// run("structTest", structTest)
-	// interfaceTest()
+	run("interface", interfaceTest)
 
 	// run("caution", caution)
 
-	run("routine", routine)
+	// run("routine", routine)
 
 }
 
