@@ -17,9 +17,8 @@ func TestSampleProductCreate(t *testing.T) {
 }
 
 func TestSampleProductFactory(t *testing.T) {
-	productFactory := sampleProductFactory{}
-	product1 := productFactory.Create(p1)
-	product2 := productFactory.Create(p2)
+	product1 := NewSampleProductFactory(p1)
+	product2 := NewSampleProductFactory(p2)
 
 	product1.SetName("p1")
 	product2.SetName("p2")

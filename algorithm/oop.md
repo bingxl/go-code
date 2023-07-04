@@ -32,7 +32,7 @@ func (p *Person) Walk() {
 
 // ---------------继承---------------
 type Chinese struct {
-    Person // 继承
+    Person // 继承, 不会继承 Person 中的方法
     skin string
 }
 func (c *Chinese) GetName() string {

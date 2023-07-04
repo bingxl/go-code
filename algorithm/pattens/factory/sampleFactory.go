@@ -41,9 +41,7 @@ const (
 	p2
 )
 
-type sampleProductFactory struct{}
-
-func (pf *sampleProductFactory) Create(productType sampleProductType) sampleProduct {
+func NewSampleProductFactory(productType sampleProductType) sampleProduct {
 	// 根据传入的不同参数返回不同的实例
 	switch productType {
 	case p1:
