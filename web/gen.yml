@@ -1,0 +1,8 @@
+# 使用 gentool 生成dao/query 和dao/model
+version: "0.1"
+database:
+    dsn: "root:lxb106170$$@tcp(localhost:3306)/gin?charset=utf8mb4&parseTime=true&loc=Local"
+    db: "mysql"
+    outPath: "./dao/query"
+    withUnitTest: false
+    fieldSignable: true
