@@ -5,6 +5,7 @@ leetcode包下共用工具
 */
 import (
 	"fmt"
+	"slices"
 	"sort"
 	"strconv"
 )
@@ -30,21 +31,10 @@ func SliceToString(sli []interface{}) string {
 
 // 比较两个切片是否相同，不考虑顺序
 func compareSlicesWithDisorder(slice1, slice2 []int) bool {
-	// 首先检查切片长度是否相同
-	if len(slice1) != len(slice2) {
-		return false
-	}
 
 	// 排序切片
 	sort.Ints(slice1)
 	sort.Ints(slice2)
 
-	// 逐个比较元素是否相同
-	for i := 0; i < len(slice1); i++ {
-		if slice1[i] != slice2[i] {
-			return false
-		}
-	}
-
-	return true
+	return slices.Equal(slice1, slice2)
 }
