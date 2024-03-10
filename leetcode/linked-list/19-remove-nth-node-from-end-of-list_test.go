@@ -37,29 +37,20 @@ func Test_removeNthFromEnd(t *testing.T) {
 			want: []int{2},
 		},
 	}
-	slice2List := func(ls []int) *ListNode {
-		head := &ListNode{}
-		cur := head
-		for _, v := range ls {
-			cur.Next = &ListNode{Val: v}
-			cur = cur.Next
-		}
-		return head.Next
+
+	methods := map[string]func(*ListNode, int) *ListNode{
+		"removeNthFromEnd":  removeNthFromEnd,
+		"removeNthFromEnd1": removeNthFromEnd1,
 	}
-	list2Slice := func(ls *ListNode) []int {
-		result := []int{}
-		for cur := ls; cur != nil; cur = cur.Next {
-			result = append(result, cur.Val)
+	for name, method := range methods {
+		for _, tt := range tests {
+			t.Run(name+"--"+tt.name, func(t *testing.T) {
+				got := list2Slice(method(slice2List(tt.args.list), tt.args.n))
+				if !slices.Equal(got, tt.want) {
+					t.Errorf("removeNthFromEnd() = %v, want %v", got, tt.want)
+				}
+			})
 		}
-		return result
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := list2Slice(removeNthFromEnd(slice2List(tt.args.list), tt.args.n))
-			if !slices.Equal(got, tt.want) {
-				t.Errorf("removeNthFromEnd() = %v, want %v", got, tt.want)
-			}
-		})
-	}
 }
