@@ -62,19 +62,22 @@ func swapPairs(head *ListNode) *ListNode {
 
 	dummyNode := &ListNode{Next: head}
 
-	cur := dummyNode
+	prev := dummyNode
 
 	for head != nil && head.Next != nil {
 
 		// 链表元素交换
-		cur.Next = head.Next
-		head.Next = head.Next.Next
-		cur.Next.Next = head
+		first := head
+		second := head.Next
+
+		prev.Next = second
+		first.Next = second.Next
+		second.Next = first
 
 		// 指针移动, cur指针移动两次
-		cur = head
+		prev = first
 		// head 指针在链表元素交换时移动过一次,此时只需要在移动一次
-		head = head.Next
+		head = first.Next
 	}
 	return dummyNode.Next
 }
